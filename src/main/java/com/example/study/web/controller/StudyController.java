@@ -43,4 +43,9 @@ public class StudyController {
         return "basic/ex2";
     }
 
+    @GetMapping(value = {"/ex3"})
+    public String ex3(){
+        return "basic/ex3";
+    }
+
 }
