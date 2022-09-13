@@ -33,4 +33,14 @@ public class StudyController {
         return "basic/3";
     }
 
+    @GetMapping(value = {"/ex1"})
+    public String ex1(){
+        return "basic/ex1";
+    }
+
+    @GetMapping(value = {"/ex2"})
+    public String ex2(){
+        return "basic/ex2";
+    }
+
 }

@@ -13,6 +13,14 @@
 </head>
 <body>
 <h1><a href="/">WEB</a></h1>
+<input type="button" value="night" onclick="
+    document.querySelector('body').style.background='black';
+    document.querySelector('body').style.color='white';
+    ">
+<input type="button" value="day" onclick="
+    document.querySelector('body').style.background='white';
+    document.querySelector('body').style.color='black';
+    ">
 <ol>
     <li><a href="1">HTML</a></li>
     <li><a href="2">CSS</a></li>
