@@ -8,41 +8,57 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>WEB - CSS</title>
+    <title>WEB1 - JavaScript</title>
+    <meta charset="utf-8">
     <script>
+
+        var Links = {
+            setColor:function(color){
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length){
+                    alist[i].style.color = color;
+                    i = i + 1;
+                }
+            }
+        }
+
+        var Body = {
+            setColor:function (color){
+                var target = document.querySelector('body');
+                target.style.color = color;
+            },
+            setBackgroundColor:function (color){
+                var target = document.querySelector('body');
+                target.style.backgroundColor = color;
+            }
+        }
+
+
         function nightDayHandler(self){
-            var target = document.querySelector('body');
+
             if(self.value === 'night'){
-                target.style.backgroundColor = 'black';
-                target.style.color = 'white';
+                Body.setBackgroundColor('black');
+                Body.setColor('white');
                 self.value = 'day';
-                var alist = document.querySelectorAll('a');
-                var i = 0;
-                while(i < alist.length){
-                    alist[i].style.color = 'powderblue';
-                    i = i + 1;
-                }
+
+                Links.setColor('powderblue');
             } else {
-                target.style.backgroundColor = 'white';
-                target.style.color = 'black';
+                Body.setBackgroundColor('white');
+                Body.setColor('black');
                 self.value = 'night';
-                var alist = document.querySelectorAll('a');
-                var i = 0;
-                while(i < alist.length){
-                    alist[i].style.color = 'blue';
-                    i = i + 1;
-                }
+
+                Links.setColor('blue');
             }
         }
     </script>
 </head>
 <body>
 <h1><a href="/">WEB</a></h1>
-<input id="night_day" type="button" value="night" onclick="
+<input type="button" value="night" onclick="
     nightDayHandler(this);
   ">
-<input id="night_day" type="button" value="night" onclick="
+<input type="button" value="night" onclick="
     nightDayHandler(this);
   ">
 <ol>
