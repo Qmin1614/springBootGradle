@@ -15,29 +15,23 @@
 <h1><a href="/">WEB</a></h1>
 <input id="night_day" type="button" value="night" onclick="
     let target = document.querySelector('body');
+    let alist = document.querySelectorAll('a');
+    var i = 0;
     if(this.value === 'night'){
-      target.style.backgroundColor = 'black';
-      target.style.color = 'white';
-      this.value = 'day';
+        // 배경색,글자색,버튼내용,링크색
+        var pageStyle = ['black', 'white', 'day', 'powderblue'];
+        } else {
+        // 배경색,글자색,버튼내용,링크색
+        var pageStyle = ['white', 'black', 'night', 'blue'];
+        }
+    target.style.backgroundColor = pageStyle[0];
+    target.style.color = pageStyle[1];
+    this.value = pageStyle[2];
 
-      var alist = document.querySelectorAll('a');
-      var i = 0;
-      while(i < alist.length){
-        alist[i].style.color = 'powderblue';
-        i = i + 1;
-      }
-    } else {
-      target.style.backgroundColor = 'white';
-      target.style.color = 'black';
-      this.value = 'night';
-
-      var alist = document.querySelectorAll('a');
-      var i = 0;
-      while(i < alist.length){
-        alist[i].style.color = 'blue';
-        i = i + 1;
-      }
-    }
+    while(i < alist.length){
+    alist[i].style.color = pageStyle[3];
+    i++;
+}
   ">
 <ol>
     <li><a href="1">HTML</a></li>
