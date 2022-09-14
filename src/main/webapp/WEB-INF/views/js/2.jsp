@@ -10,6 +10,7 @@
 <head>
     <title>WEB1 - CSS</title>
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/colors.js"></script>
 </head>
 <body>
