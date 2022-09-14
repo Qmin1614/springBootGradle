@@ -10,29 +10,32 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB - JavaScript</title>
+    <script>
+        function nightDayHandler(self){
+            let target = document.querySelector('body');
+            let alist = document.querySelectorAll('a');
+            let pageStyle = [];
+
+            if(self.value === 'night'){
+                // 배경색,글자색,버튼내용,링크색
+                pageStyle = ['black', 'white', 'day', 'powderblue'];
+            } else {
+                pageStyle = ['white', 'black', 'night', 'blue'];
+            }
+
+            target.style.backgroundColor = pageStyle[0];
+            target.style.color = pageStyle[1];
+            self.value = pageStyle[2];
+
+            for(var i = 0; i < alist.length; i++){
+                alist[i].style.color = pageStyle[3];
+            }
+        }
+    </script>
 </head>
 <body>
 <h1><a href="/">WEB</a></h1>
-<input id="night_day" type="button" value="night" onclick="
-    let target = document.querySelector('body');
-    let alist = document.querySelectorAll('a');
-    var i = 0;
-    if(this.value === 'night'){
-        // 배경색,글자색,버튼내용,링크색
-        var pageStyle = ['black', 'white', 'day', 'powderblue'];
-        } else {
-        // 배경색,글자색,버튼내용,링크색
-        var pageStyle = ['white', 'black', 'night', 'blue'];
-        }
-    target.style.backgroundColor = pageStyle[0];
-    target.style.color = pageStyle[1];
-    this.value = pageStyle[2];
-
-    while(i < alist.length){
-    alist[i].style.color = pageStyle[3];
-    i++;
-}
-  ">
+<input id="night_day" type="button" value="night" onclick="nightDayHandler(this)">
 <ol>
     <li><a href="1">HTML</a></li>
     <li><a href="2">CSS</a></li>

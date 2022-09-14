@@ -10,20 +10,40 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB - CSS</title>
+    <script>
+        function nightDayHandler(self){
+            var target = document.querySelector('body');
+            if(self.value === 'night'){
+                target.style.backgroundColor = 'black';
+                target.style.color = 'white';
+                self.value = 'day';
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length){
+                    alist[i].style.color = 'powderblue';
+                    i = i + 1;
+                }
+            } else {
+                target.style.backgroundColor = 'white';
+                target.style.color = 'black';
+                self.value = 'night';
+                var alist = document.querySelectorAll('a');
+                var i = 0;
+                while(i < alist.length){
+                    alist[i].style.color = 'blue';
+                    i = i + 1;
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <h1><a href="/">WEB</a></h1>
-<input type="button" value="night" onclick="
-    let target = document.querySelector('body');
-    if(this.value === 'night'){
-      target.style.backgroundColor = 'black';
-      target.style.color = 'white';
-      this.value = 'day';
-    } else {
-      target.style.backgroundColor = 'white';
-      target.style.color = 'black';
-      this.value = 'night';
-    }
+<input id="night_day" type="button" value="night" onclick="
+    nightDayHandler(this);
+  ">
+<input id="night_day" type="button" value="night" onclick="
+    nightDayHandler(this);
   ">
 <ol>
     <li><a href="1">HTML</a></li>
