@@ -56,14 +56,14 @@
 <p>CSS는 여러 수준과 프로파일을 가지고 있다. 각 수준의 CSS는 일반적으로 새로운 기능을 담고 있으며 CSS1, CSS2, CSS3, CSS4로 나뉜다. 프로파일들은 일반적으로 특정한 장치나 사용자
     인터페이스를 위해 만들어진 하나 이상 수준의 CSS의 하부 집합이다. </p>
 현재 휴대용 장치, 프린터, 텔레비전 수상기를 위한 프로파일들이 있다.</p>
-<input id="night_day" type="button" value="night" onclick="
-       if(this.value === 'night'){
-      target.style.backgroundColor = 'black';
-      target.style.color = 'white';
+<input type="button" value="night" onclick="
+    if(this.value === 'night'){
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';
       this.value = 'day';
     } else {
-      target.style.backgroundColor = 'white';
-      target.style.color = 'black';
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'black';
       this.value = 'night';
     }
   ">
