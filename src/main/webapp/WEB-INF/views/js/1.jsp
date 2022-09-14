@@ -10,22 +10,11 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB - HTML</title>
+    <script src="js/colors.js"></script>
 </head>
 <body>
 <h1><a href="/">WEB</a></h1>
-<input type="button" value="night" onclick="
-    if(document.querySelector('body').dataset.mode === 'day') {
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';
-        document.querySelector('body').dataset.mode = 'night';
-        this.value = 'day';
-    } else {
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-        document.querySelector('body').dataset.mode = 'day';
-        this.value = 'night'
-    }
-">
+<input type="button" value="night" onclick="nightDayHandler(this);">
 <ol>
     <li><a href="1">HTML</a></li>
     <li><a href="2">CSS</a></li>

@@ -8,59 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>WEB1 - JavaScript</title>
+    <title>WEB1 - CSS</title>
     <meta charset="utf-8">
-    <script>
-
-        var Links = {
-            setColor:function(color){
-                var alist = document.querySelectorAll('a');
-                var i = 0;
-                while(i < alist.length){
-                    alist[i].style.color = color;
-                    i = i + 1;
-                }
-            }
-        }
-
-        var Body = {
-            setColor:function (color){
-                var target = document.querySelector('body');
-                target.style.color = color;
-            },
-            setBackgroundColor:function (color){
-                var target = document.querySelector('body');
-                target.style.backgroundColor = color;
-            }
-        }
-
-
-        function nightDayHandler(self){
-
-            if(self.value === 'night'){
-                Body.setBackgroundColor('black');
-                Body.setColor('white');
-                self.value = 'day';
-
-                Links.setColor('powderblue');
-            } else {
-                Body.setBackgroundColor('white');
-                Body.setColor('black');
-                self.value = 'night';
-
-                Links.setColor('blue');
-            }
-        }
-    </script>
+    <script src="js/colors.js"></script>
 </head>
 <body>
 <h1><a href="/">WEB</a></h1>
-<input type="button" value="night" onclick="
-    nightDayHandler(this);
-  ">
-<input type="button" value="night" onclick="
-    nightDayHandler(this);
-  ">
+<input type="button" value="night" onclick="nightDayHandler(this);">
 <ol>
     <li><a href="1">HTML</a></li>
     <li><a href="2">CSS</a></li>
