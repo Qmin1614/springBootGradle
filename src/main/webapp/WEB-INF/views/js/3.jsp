@@ -11,12 +11,12 @@
     <meta charset="UTF-8">
     <title>WEB - JavaScript</title>
     <script>
-        function nightDayHandler(self){
+        function nightDayHandler(self) {
             let target = document.querySelector('body');
             let alist = document.querySelectorAll('a');
             let pageStyle = [];
 
-            if(self.value === 'night'){
+            if(self.value === 'night') {
                 // 배경색,글자색,버튼내용,링크색
                 pageStyle = ['black', 'white', 'day', 'powderblue'];
             } else {
@@ -27,7 +27,7 @@
             target.style.color = pageStyle[1];
             self.value = pageStyle[2];
 
-            for(var i = 0; i < alist.length; i++){
+            for(var i = 0; i < alist.length; i++) {
                 alist[i].style.color = pageStyle[3];
             }
         }
