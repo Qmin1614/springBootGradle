@@ -13,46 +13,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../js/colors.js"></script>
     <style>
-        body {
-            margin: 0;
+        body{
+            margin:0;
         }
-
         a {
-            color: black;
+            color:black;
             text-decoration: none;
         }
-
-        .saw {
-            color: gray;
-        }
-
-        #active {
-            color: red;
-        }
-
         h1 {
-            font-size: 60px;
+            font-size:45px;
             text-align: center;
-            border-bottom: 1px solid gray;
-            margin: 0;
-            padding: 20px;
+            border-bottom:1px solid gray;
+            margin:0;
+            padding:20px;
         }
-
-        ol {
-            border-right: 1px solid gray;
-            width: 100px;
-            margin: 0;
-            padding: 20px;
+        ol{
+            border-right:1px solid gray;
+            width:100px;
+            margin:0;
+            padding:20px;
         }
-        #grid {
+        #grid{
             display: grid;
             grid-template-columns: 150px 1fr;
         }
-        ol {
-            padding-left: 33px;
+        #grid ol{
+            padding-left:33px;
         }
-        #artcle {
-            padding-left: 25px;
+        #grid #article{
+            padding-left:25px;
+        }
+        @media(max-width:800px){
+            #grid{
+                display: block;
+            }
+            ol{
+                border-right:none;
+            }
+            h1 {
+                border-bottom:none;
+            }
         }
     </style>
 </head>
@@ -60,11 +60,11 @@
 <h1><a href="/css">WEB</a></h1>
 <div id="grid">
     <ol>
-        <li><a href="1" class="saw">HTML</a></li>
-        <li><a href="2" class="saw" id="active">CSS</a></li>
+        <li><a href="1">HTML</a></li>
+        <li><a href="2">CSS</a></li>
         <li><a href="3">JavaScript</a></li>
     </ol>
-    <div id="artcle">
+    <div id="article">
         <input type="button" value="night" onclick="nightDayHandler(this);">
         <h2>CSS</h2>
         <p><a href="https://www.w3.org/TR/html5/" target="_blank" title="html5 speicification">Hypertext Markup Language</a>

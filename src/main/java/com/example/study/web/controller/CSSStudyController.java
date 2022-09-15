@@ -42,4 +42,9 @@ public class CSSStudyController {
         return "css/grid";
     }
 
+    @GetMapping(value = {"/css/mediaquery"})
+    public String mediaquery(){
+        return "css/mediaquery";
+    }
+
 }
