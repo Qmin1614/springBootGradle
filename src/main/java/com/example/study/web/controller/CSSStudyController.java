@@ -32,4 +32,10 @@ public class CSSStudyController {
         return "css/3";
     }
 
+    @GetMapping(value = {"/css/box"})
+    public String box(){
+        return "css/box";
+    }
+
+
 }
