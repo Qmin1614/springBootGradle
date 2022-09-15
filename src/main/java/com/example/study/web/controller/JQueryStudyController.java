@@ -12,8 +12,28 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class JQueryStudyController {
-    @GetMapping(value = {"/jquery"})
-    public String jquery(){
-        return "jquery/index";
+    @GetMapping(value = {"jquery/ex1"})
+    public String ex1(){
+        return "jquery/ex1";
+    }
+
+    @GetMapping(value = {"jquery/ex2"})
+    public String ex2(){
+        return "jquery/ex2";
+    }
+
+    @GetMapping(value = {"jquery/ex3"})
+    public String ex3(){
+        return "jquery/ex3";
+    }
+
+    @GetMapping(value = {"jquery/ex4"})
+    public String ex4(){
+        return "jquery/ex4";
+    }
+
+    @GetMapping(value = {"jquery/ex5"})
+    public String ex5(){
+        return "jquery/ex5";
     }
 }
