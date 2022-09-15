@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * Comments:
  */
 @Controller
-public class StudyController {
+public class JSStudyController {
 
     @GetMapping(value = {"/"})
     public String index(){

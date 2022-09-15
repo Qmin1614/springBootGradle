@@ -12,13 +12,19 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/colors.js"></script>
+    <style>
+        a {
+           color: black;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-<h1><a href="/">WEB</a></h1>
+<h1><a href="/css">WEB</a></h1>
 <input type="button" value="night" onclick="nightDayHandler(this);">
 <ol>
     <li><a href="1">HTML</a></li>
-    <li><a href="2">CSS</a></li>
+    <li><a href="2" style="color: red; text-decoration: underline">CSS</a></li>
     <li><a href="3">JavaScript</a></li>
 </ol>
 <h2>CSS</h2>
