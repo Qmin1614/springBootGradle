@@ -14,8 +14,18 @@
     <script src="js/colors.js"></script>
     <style>
         a {
-           color: black;
+            color: black;
             text-decoration: none;
+        }
+        .saw {
+           color: gray;
+        }
+        #active {
+            color: red;
+        }
+        h1 {
+            font-size: 60px;
+            text-align: center;
         }
     </style>
 </head>
@@ -23,8 +33,8 @@
 <h1><a href="/css">WEB</a></h1>
 <input type="button" value="night" onclick="nightDayHandler(this);">
 <ol>
-    <li><a href="1">HTML</a></li>
-    <li><a href="2" style="color: red; text-decoration: underline">CSS</a></li>
+    <li><a href="1" class="saw">HTML</a></li>
+    <li><a href="2" class="saw" id="active">CSS</a></li>
     <li><a href="3">JavaScript</a></li>
 </ol>
 <h2>CSS</h2>
