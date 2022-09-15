@@ -37,5 +37,9 @@ public class CSSStudyController {
         return "css/box";
     }
 
+    @GetMapping(value = {"/css/grid"})
+    public String grid(){
+        return "css/grid";
+    }
 
 }
