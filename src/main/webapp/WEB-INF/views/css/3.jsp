@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB - JavaScript</title>
+    <link rel="stylesheet" href="../css/style.css">
     <script>
         function nightDayHandler(self) {
             let target = document.querySelector('body');
@@ -32,58 +33,6 @@
             }
         }
     </script>
-    <style>
-        body {
-            margin: 0;
-        }
-
-        a {
-            color: black;
-            text-decoration: none;
-        }
-
-        h1 {
-            font-size: 45px;
-            text-align: center;
-            border-bottom: 1px solid gray;
-            margin: 0;
-            padding: 20px;
-        }
-
-        ol {
-            border-right: 1px solid gray;
-            width: 100px;
-            margin: 0;
-            padding: 20px;
-        }
-
-        #grid {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-        }
-
-        #grid ol {
-            padding-left: 33px;
-        }
-
-        #grid #article {
-            padding-left: 25px;
-        }
-
-        @media (max-width: 800px) {
-            #grid {
-                display: block;
-            }
-
-            ol {
-                border-right: none;
-            }
-
-            h1 {
-                border-bottom: none;
-            }
-        }
-    </style>
 </head>
 <h1><a href="/css">WEB</a></h1>
 <div id="grid">
