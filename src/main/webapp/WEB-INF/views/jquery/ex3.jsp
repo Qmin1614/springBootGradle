@@ -12,18 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
-<ul>
-    <li>test2</li>
-</ul>
-<ul class="foo">
-    <li>test</li>
-</ul>
+<a id="tutorial" href="http://jquery.com" target="_self">jQuery</a>
 <script type="text/javascript">
-    (function($){
-        $('ul.foo').click( function() {
-            $('li', this).css('background-color','red');
-        });
-    })(jQuery)
+    $('#tutorial').attr('href', 'http://jquery.org').attr('target', '_blank').css('color', 'red');
 </script>
 </body>
 </html>
