@@ -10,20 +10,44 @@
 <head>
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        function clickHandler(e){
+            alert('thank you');
+        }
+
+        // $(document).bind('ready', function(){
+        //     $('#click_me').bind('click', clickHandler);
+        //     $('#remove_event').bind('click', function(e){
+        //         $('#click_me').unbind('click', clickHandler);
+        //     });
+        //     $('#trigger_event').bind('click', function(e){
+        //         $('#click_me').trigger('click');
+        //     });
+        // })
+
+        //event helper
+        $(document).ready(function(){
+            $('#click_me').click(clickHandler);
+            $('#remove_event').click(function(e){
+                $('#click_me').unbind('click', clickHandler);
+            });
+            $('#trigger_event').click(function(e){
+                $('#click_me').trigger('click');
+            });
+        })
+
+        //event use by on (live does not used these day)
+        // $('#click_me').on('click', clickHandler);
+        // $('#remove_event').on('click', function(e) {
+        //     $('#click_me').off('click', clickHandler);
+        // });
+        // $('#trigger_event').on('click', function(e) {
+        //     $('#click_me').trigger('click');
+        // });
+    </script>
 </head>
 <body>
-<ul>
-    <li>test2</li>
-</ul>
-<ul class="foo">
-    <li>test</li>
-</ul>
-<script type="text/javascript">
-    (function($){
-        $('ul.foo').click( function() {
-            $('li', this).css('background-color','red');
-        });
-    })(jQuery)
-</script>
-</body>
+<input id="click_me" type="button" value="click me" />
+<input id="remove_event" type="button" value="unbind" />
+<input id="trigger_event" type="button" value="trigger" /></body>
 </html>
