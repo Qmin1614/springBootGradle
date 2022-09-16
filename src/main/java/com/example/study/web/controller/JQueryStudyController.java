@@ -41,4 +41,9 @@ public class JQueryStudyController {
     public String ex6(){
         return "jquery/ex6";
     }
+
+    @GetMapping(value = {"jquery/ex7"})
+    public String ex7(){
+        return "jquery/ex7";
+    }
 }
