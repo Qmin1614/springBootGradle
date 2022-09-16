@@ -15,6 +15,20 @@
             color: blue;
             margin: 8px;
         }
+        .blue {
+            color:blue;
+            margin: 4px;
+            font-size:16px;
+            font-weight:bolder;
+            cursor:pointer;
+        }
+        .highlight {
+            background:yellow;
+            margin: 4px;
+            font-size:16px;
+            font-weight:bolder;
+            cursor:pointer;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +122,7 @@ how are
 <script>
     $(".blue").click(function () {
         $(this).toggleClass("highlight");
-        $(".blue highlight").toggleClass("blue");
+        // $(".blue highlight").toggleClass("blue");
     });
 </script>
 
