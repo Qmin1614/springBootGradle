@@ -5,6 +5,10 @@
   Time: 오전 9:18
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+Reference
+[생활코딩] JQuery
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -69,7 +73,7 @@
 <body>
 <div id="wrapper">
     <p>
-        javascript을 입력 한 후에 엔터를 눌러주세요.
+        JavaScript을 입력 한 후에 엔터를 눌러주세요.
         <textarea id="code"></textarea></p>
     <div id="help">
         <table>

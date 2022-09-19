@@ -242,7 +242,6 @@ Reference
                 break;
             case 'input:checked':
                 $('input:checked').parent().addClass('selected');
-                ;
                 break;
 
         }
