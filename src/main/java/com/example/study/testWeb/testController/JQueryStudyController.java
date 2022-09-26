@@ -1,4 +1,4 @@
-package com.example.study.web.controller;
+package com.example.study.testWeb.testController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class JQueryStudyController {
+
     @GetMapping(value = {"jquery/ex1"})
     public String ex1(){
         return "jquery/ex1";
