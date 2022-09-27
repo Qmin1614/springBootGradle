@@ -18,11 +18,11 @@
     <a href=<c:url value="/"/> class="item">
         Home
     </a>
-    <a class="item">
-        택시 기사
+    <a href=<c:url value="/member/list"/> class="item">
+        회원정보
     </a>
-    <a class="item">
-        택시타길 원하는 사람
+    <a href=<c:url value="/member/join"/> class="item">
+        회원 가입
     </a>
     <div class="right menu">
         <div class="item">

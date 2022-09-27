@@ -11,7 +11,7 @@
     <div class="ui center aligned container">
         <p>
             <strong>
-                get taxi
+                coding practice
             </strong>
             <br />
             Copyright 2022 Qmin Inc. All right reserved
