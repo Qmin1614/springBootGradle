@@ -41,8 +41,8 @@ public class BaseMemberService implements MemberService {
     }
 
     @Override
-    public Member updateMember(String id) {
-        return this.memberMapper.updateMember(id);
+    public int updateMember(Member member) {
+        return this.memberMapper.updateMember(member);
     }
 
     @Override

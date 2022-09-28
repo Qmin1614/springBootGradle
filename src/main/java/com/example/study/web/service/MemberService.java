@@ -31,7 +31,7 @@ public interface MemberService {
     /**
      * @see <p>ID에 해당하는 회원 정보수정</p>
      */
-    Member updateMember(String id);
+    int updateMember(Member member);
 
     /**
      * @see <p>ID에 해당하는 회원 정보삭제</p>

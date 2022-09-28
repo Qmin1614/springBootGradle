@@ -9,7 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <script>
-
     function convertFormDataToObject(form) {
         var ary = form.serializeArray();
         var object = {};
@@ -19,7 +18,7 @@
         return object;
     }
 
-    function save() {
+    function add() {
 
         let checkps1 = document.getElementById("checkps1").value;
         let checkps2 = document.getElementById("checkps2").value;
@@ -78,7 +77,7 @@
                     </div>
                 </td>
                 <tr>
-                    <th>패스워드</th>
+                    <th>비밀번호</th>
                 </tr>
                 <td>
                     <div>
@@ -88,7 +87,7 @@
                     </div>
                 </td>
                 <tr>
-                    <th>패스워드 확인</th>
+                    <th>비밀번호 확인</th>
                 </tr>
                 <td>
                     <div>
@@ -101,7 +100,7 @@
         </form>
     </div>
     <div>
-        <button type="button" class="btn-basic ui button" onclick="save();">
+        <button type="button" class="btn-basic ui button" onclick="add();">
             <p>저장</p>
         </button>
     </div>

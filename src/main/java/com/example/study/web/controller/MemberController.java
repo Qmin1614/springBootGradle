@@ -57,4 +57,26 @@ public class MemberController {
         model.addAttribute("main", "member/update");
         return "view";
     }
+
+    @ResponseBody
+    @PostMapping(value = {"/member/update"})
+    public PostUpdateMemberResponse postUpdateMember(@RequestBody PostUpdateMember postUpdateMember) {
+        try {
+            this.memberService.updateMember(postUpdateMember.toEntity());
+            return new PostUpdateMemberResponse("success", "회원수정에 성공했습니다.");
+        } catch (Exception e) {
+            return new PostUpdateMemberResponse("fail", e.getMessage());
+        }
+    }
+
+    @ResponseBody
+    @PostMapping(value = {"/member/delete"})
+    public PostDeleteMemberResponse postDeleteMember(@RequestBody PostDeleteMember postDeleteMember) {
+        try {
+            this.memberService.deleteMember(postDeleteMember.toEntity().getId());
+            return new PostDeleteMemberResponse("success", "회원정보가 삭제 되었습니다.");
+        } catch (Exception e) {
+            return new PostDeleteMemberResponse("fail", e.getMessage());
+        }
+    }
 }

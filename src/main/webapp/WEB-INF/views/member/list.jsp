@@ -10,11 +10,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <script>
-
-    function update(id) {
-
+    function remove(id) {
+        let param = {id: id};
+        let result = confirm('정말 삭제 하시겠습니까?');
+        if (result === true) {
+            $.ajax({
+                type: 'post',
+                url: '<c:url value='/member/delete'/>',
+                data: JSON.stringify(param),
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (postDeleteMemberResponse) {
+                    if (postDeleteMemberResponse.status === 'success') {
+                        alert(postDeleteMemberResponse.message);
+                        window.location.reload();
+                    } else {
+                        alert(postDeleteMemberResponse.message);
+                    }
+                }, fail: function (request, status, error) {
+                    console.log(error);
+                }
+            });
+        }
     }
-
 </script>
 <body>
 <h4>회원 목록</h4>
@@ -38,7 +56,7 @@
                         <th>${member.updateDate}</th>
                         <th>
                             <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/member/update?id='/>${member.id}'">수정</button>
-                            <button type="button" class="btn-basic ui button" onclick="delete(${member.id});">삭제</button>
+                            <button type="button" class="btn-basic ui button" onclick="remove(${member.id})">삭제</button>
                         </th>
                     </tr>
                 </c:forEach>
