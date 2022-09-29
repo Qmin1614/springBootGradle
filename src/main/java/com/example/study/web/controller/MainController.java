@@ -21,9 +21,4 @@ public class MainController {
         return "view";
     }
 
-    @GetMapping(value = {"/login"})
-    public String login(Model model) {
-        model.addAttribute("main", "login/login");
-        return "view";
-    }
 }

@@ -2,6 +2,7 @@ package com.example.study.web.dao;
 
 import com.example.study.web.model.member.Member;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -24,6 +25,11 @@ public interface MemberMapper {
      * @see <p>ID에 해당하는 회원 정보출력</p>
      */
     Member selectMemberById(String id);
+
+    /**
+     * @see <p>ID와 password에 해당하는 회원 정보출력</p>
+     */
+    Member selectMemberByLoginIdAndPassword(@Param("loginId") String loginId, @Param("password") String password);
 
     /**
      * @see <p>회원가입</p>

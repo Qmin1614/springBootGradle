@@ -50,4 +50,9 @@ public class BaseMemberService implements MemberService {
         return this.memberMapper.deleteMember(id);
     }
 
+    @Override
+    public Member login(String loginId, String password) {
+        return this.memberMapper.selectMemberByLoginIdAndPassword(loginId, password);
+    }
+
 }

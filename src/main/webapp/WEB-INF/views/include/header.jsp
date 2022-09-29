@@ -18,15 +18,26 @@
     <a href=<c:url value="/"/> class="item">
         Home
     </a>
-    <a href=<c:url value="/member/list"/> class="item">
-        회원정보
-    </a>
+    <c:if test="${member != null}">
+        <a href=<c:url value="/member/list"/> class="item">
+            회원정보
+        </a>
+    </c:if>
     <a href=<c:url value="/member/join"/> class="item">
         회원 가입
     </a>
     <div class="right menu">
-        <a href=<c:url value="/login"/> class="ui item">
+        <c:if test="${member == null}">
+            <a href=<c:url value="/login"/> class="ui item">
             Login
-        </a>
+            </a>
+        </c:if>
+        <c:if test="${member != null}">
+            <strong>${member.name}</strong>님 환영합니다.
+            <a href=<c:url value="/"/> class="ui item">
+            logout
+            </a>
+        </c:if>
+
     </div>
 </div>

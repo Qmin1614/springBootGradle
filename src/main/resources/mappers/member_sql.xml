@@ -34,6 +34,12 @@
         WHERE id = #{id}
     </select>
 
+    <select id="selectMemberByLoginIdAndPassword" resultMap="MemberResult">
+        SELECT id, name, login_id
+        FROM member
+        WHERE login_id = #{loginId} and password = #{password}
+    </select>
+
     <insert id="insertMember" parameterType="com.example.study.web.model.member.Member">
         INSERT INTO member (login_id, name, password, create_date, update_date)
         VALUES(#{loginId}, #{name}, #{password}, NOW(), NOW())

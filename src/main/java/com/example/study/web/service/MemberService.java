@@ -37,4 +37,9 @@ public interface MemberService {
      * @see <p>ID에 해당하는 회원 정보삭제</p>
      */
     int deleteMember(String id);
+
+    /**
+     * @see <p>Id와 Password로 해당 맴버가 있는지 조회</p>
+     */
+    Member login(String loginId, String password);
 }
