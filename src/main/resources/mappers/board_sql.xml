@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.study.web.dao.BoardMapper">
+
+    <resultMap id="BoardResult" type="com.example.study.web.model.board.Board">
+        <result property="boardId" column="board_id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="createDate" column="create_date" />
+        <result property="updateDate" column="update_date" />
+    </resultMap>
+
+    <select id="selectBoardAll" resultMap="BoardResult">
+        SELECT board_id,
+               nick_name,
+               title,
+               content,
+               create_date,
+               update_date
+        FROM board
+        WHERE 1 = 1
+    </select>
+
+    <insert id="insertBoard" parameterType="com.example.study.web.model.board.Board">
+        INSERT INTO board (nick_name, title, content, create_date, update_date)
+        VALUES(#{nickName}, #{title}, #{content}, NOW(), NOW())
+    </insert>
+
+</mapper>

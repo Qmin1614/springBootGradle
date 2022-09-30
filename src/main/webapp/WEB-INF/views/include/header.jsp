@@ -22,6 +22,9 @@
         <a href=<c:url value="/member/list"/> class="item">
             회원정보
         </a>
+        <a href=<c:url value="/board/list"/> class="item">
+            게시판
+        </a>
     </c:if>
     <a href=<c:url value="/member/join"/> class="item">
         회원 가입
@@ -33,10 +36,12 @@
             </a>
         </c:if>
         <c:if test="${member != null}">
-            <strong>${member.name}</strong>님 환영합니다.
-            <a href=<c:url value="/"/> class="ui item">
+            <a href=<c:url value="/logout"/> class="ui item">
             logout
             </a>
+            <div style="font-size: 12pt">
+                <strong>${member.name}</strong>님 환영합니다.
+            </div>
         </c:if>
 
     </div>

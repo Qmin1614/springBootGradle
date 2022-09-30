@@ -49,12 +49,12 @@
             <c:when test="${fn:length(getReadMemberResponse.memberList) > 0}">
                 <c:forEach items="${getReadMemberResponse.memberList}" var="member" varStatus="status">
                     <tr>
-                        <th>${member.name}</th>
-                        <th>${member.loginId}</th>
-                        <th>${member.password}</th>
-                        <th>${member.createDate}</th>
-                        <th>${member.updateDate}</th>
-                        <th>
+                        <td>${member.name}</td>
+                        <td>${member.loginId}</td>
+                        <td>${member.password}</td>
+                        <td>${member.createDate}</td>
+                        <td>${member.updateDate}</td>
+                        <td
                             <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/member/update?id='/>${member.id}'">수정</button>
                             <button type="button" class="btn-basic ui button" onclick="remove(${member.id})">삭제</button>
                         </th>

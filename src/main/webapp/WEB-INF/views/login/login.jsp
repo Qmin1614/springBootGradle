@@ -44,9 +44,9 @@
       success: function (postUpdateMemberResponse) {
         if (postUpdateMemberResponse.status === 'success') {
           alert(postUpdateMemberResponse.message)
-          window.location.reload();
+          location.href="<c:url value='/'/>";
         } else {
-          alert("회원 수정에 실패하셨습니다.");
+          alert("로그인에 실패하셨습니다.");
         }
       }, fail: function (request, status, error) {
         console.log(error);

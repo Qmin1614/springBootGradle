@@ -50,4 +50,10 @@ public class LoginController {
             return new PostLoginMemberResponse("fail", e.getMessage());
         }
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
 }

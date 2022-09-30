@@ -62,7 +62,7 @@
                 <td>
                     <div>
                         <label>
-                            <input type="text" id="name" name="name">
+                            <input type="text" name="name">
                         </label>
                     </div>
                 </td>
@@ -72,7 +72,7 @@
                 <td>
                     <div>
                         <label>
-                            <input type="text" id="loginId" name="loginId">
+                            <input type="text" name="loginId">
                         </label>
                     </div>
                 </td>
