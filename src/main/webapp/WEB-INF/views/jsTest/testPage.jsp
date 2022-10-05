@@ -13,8 +13,7 @@
         //화살표 함수
 
         const add = (num1, num2) => {
-            const result = num1 + num2;
-            return result;
+            num1 + num2;
         };
 
     </script>
