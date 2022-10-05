@@ -8,7 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <script>
+
+        //화살표 함수
+
+        const add = (num1, num2) => {
+            const result = num1 + num2;
+            return result;
+        };
+
+    </script>
 </head>
 <body>
 
