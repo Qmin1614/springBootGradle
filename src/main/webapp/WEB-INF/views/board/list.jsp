@@ -9,12 +9,40 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
+    <script>
+        function remove(boardId) {
+            let isDelete = confirm("정말 삭제하시겠습니까?");
+            let param = {boardId: boardId};
+            if(isDelete) {
+                $.ajax({
+                    type: 'post',
+                    url: '<c:url value='/board/delete'/>',
+                    data: JSON.stringify(param),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (postDeleteBoardResponse) {
+                        if (postDeleteBoardResponse.status === 'success') {
+                            alert(postDeleteBoardResponse.message);
+                            window.location.reload();
+                        } else {
+                            alert("글등록에 실패하였습니다.")
+                        }
+                    }, fail: function (request, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+        }
+    </script>
+</head>
 <body>
 <h4>게시판 목록</h4>
 <c:if test="${member != null}">
-<div>
-    <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/add'/>'">글쓰기</button>
-</div>
+    <div>
+        <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/add'/>'">글쓰기
+        </button>
+    </div>
 </c:if>
 <div class="contents">
     <table class="ui celled table compact clickable checkable" style="max-width: 1000px">
@@ -22,6 +50,9 @@
             <th>제목</th>
             <th>닉네임</th>
             <th>작성일</th>
+            <c:if test="${member != null}">
+                <th>글관리</th>
+            </c:if>
         </tr>
         <c:choose>
             <c:when test="${fn:length(getReadBoardResponse.boardList) > 0}">
@@ -30,15 +61,12 @@
                         <td>${board.title}</td>
                         <td>${board.nickName}</td>
                         <td>${board.createDate}</td>
-                        <c:out value="${member.name}"/>
-                        <c:out value="${board.nickName}"/>
-                        ===========================
-                        <c:if test="'${member.name}' == '${board.nickName}'">
-                            <td>
+                        <td>
+                            <c:if test="${member.name eq board.nickName}">
                                 <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/update?boardId='/>${board.boardId}'">수정</button>
                                 <button type="button" class="btn-basic ui button" onclick="remove(${board.boardId})">삭제</button>
-                            </td>
-                        </c:if>
+                            </c:if>
+                        </td>
                     </tr>
                 </c:forEach>
             </c:when>

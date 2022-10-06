@@ -21,9 +21,24 @@ public interface BoardMapper {
     List<Board> selectBoardAll();
 
     /**
+     * @see <p>boardId로 게시판 글 조회</p>
+     */
+    Board selectBoardById(String boardId);
+
+    /**
      * @see <p>테이블 생성</p>
      * @param board
      * @return
      */
     int insertBoard(Board board);
+
+    /**
+     * @see <p>게시판 글 수정</p>
+     */
+    int updateBoard(Board board);
+
+    /**
+     * @see <p>게시판 글 삭제</p>
+     */
+    int deleteBoard(String board);
 }

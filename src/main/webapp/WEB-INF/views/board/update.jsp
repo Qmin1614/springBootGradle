@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: pkm16
-  Date: 2022-09-30
-  Time: 오전 11:29
+  Date: 2022-10-06
+  Time: 오전 10:54
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,20 +19,20 @@
             return object;
         }
 
-        function add() {
+        function update() {
             console.log(convertFormDataToObject($('#frm')));
             $.ajax({
                 type: 'post',
-                url: '<c:url value='/board/add'/>',
+                url: '<c:url value='/board/update'/>',
                 data: JSON.stringify(convertFormDataToObject($('#frm'))),
                 dataType: 'json',
                 contentType: 'application/json',
-                success: function (postCreateBoardResponse) {
-                    if (postCreateBoardResponse.status === 'success') {
-                        alert(postCreateBoardResponse.message)
+                success: function (postUpdateBoardResponse) {
+                    if (postUpdateBoardResponse.status === 'success') {
+                        alert(postUpdateBoardResponse.message)
                         location.href='<c:url value='/board/list'/>';
                     } else {
-                        alert("글 등록에 실패하셨습니다.");
+                        alert("글 수정에 실패하셨습니다.");
                     }
                 }, fail: function (request, status, error) {
                     console.log(error);
@@ -42,10 +42,10 @@
     </script>
 </head>
 <body>
-<h2>글쓰기</h2>
 <div>
     <div>
-        <form id="frm" action="<c:url value='/member/add'/>" method="post">
+        <form id="frm" action="<c:url value='/member/update'/>" method="post">
+            <input type="hidden" name="boardId" value="${getUpdateBoardResponse.board.boardId}">
             <table>
                 <tr>
                     <th>닉네임</th>
@@ -53,7 +53,7 @@
                 <td>
                     <div>
                         <label>
-                            <input type="text" name="nickName" value="${member.name}" readonly>
+                            <input type="text" name="nickName" value="${getUpdateBoardResponse.board.nickName}" readonly>
                         </label>
                     </div>
                 </td>
@@ -63,7 +63,7 @@
                 <td>
                     <div>
                         <label>
-                            <input type="text" name="title">
+                            <input type="text" name="title" value="${getUpdateBoardResponse.board.title}">
                         </label>
                     </div>
                 </td>
@@ -73,7 +73,7 @@
                 <td>
                     <div>
                         <label>
-                            <textarea type="text" name="content"></textarea>
+                            <textarea type="text" name="content">${getUpdateBoardResponse.board.content}</textarea>
                         </label>
                     </div>
                 </td>
@@ -81,8 +81,11 @@
         </form>
     </div>
     <div>
-        <button type="button" class="btn-basic ui button" onclick="add();">
+        <button type="button" class="btn-basic ui button" onclick="update();">
             <p>저장</p>
+        </button>
+        <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/list'/>'">
+            <p>목록</p>
         </button>
     </div>
 </div>

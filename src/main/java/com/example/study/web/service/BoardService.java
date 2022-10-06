@@ -19,7 +19,22 @@ public interface BoardService {
     List<Board> getBoardAll();
 
     /**
-     * @see <p>게시판 생성</p>
+     * @see <p>boardId로 게시판 글 조회</p>
+     */
+    Board getBoardById(String boardId);
+
+    /**
+     * @see <p>게시판 글 생성</p>
      */
     int addBoard(Board board);
+
+    /**
+     * @see <p>게시판 글 수정</p>
+     */
+    int updateBoard(Board board);
+
+    /**
+     * @see <p>게시판 글 삭제</p>
+     */
+    int deleteBoard(String boardId);
 }

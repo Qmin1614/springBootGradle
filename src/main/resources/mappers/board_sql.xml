@@ -23,9 +23,34 @@
         WHERE 1 = 1
     </select>
 
+    <select id="selectBoardById" resultMap="BoardResult" parameterType="String">
+        SELECT board_id,
+               nick_name,
+               title,
+               content,
+               create_date,
+               update_date
+        FROM board
+        WHERE board_id = #{boardId}
+    </select>
+
     <insert id="insertBoard" parameterType="com.example.study.web.model.board.Board">
         INSERT INTO board (nick_name, title, content, create_date, update_date)
         VALUES(#{nickName}, #{title}, #{content}, NOW(), NOW())
     </insert>
+
+    <update id="updateBoard" parameterType="com.example.study.web.model.board.Board">
+        UPDATE board
+        SET nick_name = #{nickName},
+            title = #{title},
+            content = #{content},
+            update_date = NOW()
+        WHERE board_id = #{boardId}
+    </update>
+
+    <delete id="deleteBoard" parameterType="String">
+        DELETE FROM board
+        WHERE board_id = #{boardId}
+    </delete>
 
 </mapper>

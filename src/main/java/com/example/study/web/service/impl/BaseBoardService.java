@@ -29,7 +29,22 @@ public class BaseBoardService implements BoardService {
     }
 
     @Override
+    public Board getBoardById(String boardId) {
+        return this.boardMapper.selectBoardById(boardId);
+    }
+
+    @Override
     public int addBoard(Board board) {
         return this.boardMapper.insertBoard(board);
+    }
+
+    @Override
+    public int updateBoard(Board board) {
+        return this.boardMapper.updateBoard(board);
+    }
+
+    @Override
+    public int deleteBoard(String boardId) {
+        return this.boardMapper.deleteBoard(boardId);
     }
 }
