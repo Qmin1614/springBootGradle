@@ -9,20 +9,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>Title</title>
+    <style>
+        .layout {height: 100vh; display: grid; grid-template-rows: 55px calc(100vh - 55px); grid-template-areas: "top" "bottom"}
+    </style>
 </head>
 <body>
-<!-- header -->
-<c:import url="include/header.jsp"/>
-<!-- body -->
+<div class="layout">
+    <!-- header -->
+    <c:import url="include/header.jsp"/>
+    <!-- body -->
 
-<!-- left -->
+    <!-- left -->
 
-<!-- content -->
-<div class="ui basic main">
-    <c:import url="${main}.jsp"/>
+    <!-- content -->
+    <div class="ui basic main">
+        <c:import url="${main}.jsp"/>
+    </div>
+    <!-- footer -->
+    <c:import url="include/footer.jsp"/>
 </div>
-<!-- footer -->
-<c:import url="include/footer.jsp"/>
 </body>
 </html>

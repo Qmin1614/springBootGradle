@@ -42,29 +42,25 @@
     </script>
 </head>
 <body>
-<div>
+<div style="padding: 70px;">
     <div>
-        <form id="frm" action="<c:url value='/member/update'/>" method="post">
+        <form id="frm" action="<c:url value='/user/update'/>" method="post">
             <input type="hidden" name="boardId" value="${getUpdateBoardResponse.board.boardId}">
             <table>
                 <tr>
                     <th>닉네임</th>
                 </tr>
                 <td>
-                    <div>
-                        <label>
+                    <div class="ui input" style="width: 600px;">
                             <input type="text" name="nickName" value="${getUpdateBoardResponse.board.nickName}" readonly>
-                        </label>
                     </div>
                 </td>
                 <tr>
                     <th>제목</th>
                 </tr>
                 <td>
-                    <div>
-                        <label>
+                    <div class="ui input" style="width: 600px;">
                             <input type="text" name="title" value="${getUpdateBoardResponse.board.title}">
-                        </label>
                     </div>
                 </td>
                 <tr>
@@ -72,9 +68,7 @@
                 </tr>
                 <td>
                     <div>
-                        <label>
-                            <textarea type="text" name="content">${getUpdateBoardResponse.board.content}</textarea>
-                        </label>
+                            <textarea type="text" name="content" style="border: grey; min-height: 300px; min-width: 600px;">${getUpdateBoardResponse.board.content}</textarea>
                     </div>
                 </td>
             </table>

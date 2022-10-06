@@ -41,9 +41,9 @@
       data: JSON.stringify(convertFormDataToObject($('#frm'))),
       dataType: 'json',
       contentType: 'application/json',
-      success: function (postUpdateMemberResponse) {
-        if (postUpdateMemberResponse.status === 'success') {
-          alert(postUpdateMemberResponse.message)
+      success: function (postUpdateUserResponse) {
+        if (postUpdateUserResponse.status === 'success') {
+          alert(postUpdateUserResponse.message)
           location.href="<c:url value='/'/>";
         } else {
           alert("로그인에 실패하셨습니다.");
@@ -80,7 +80,7 @@
     </form>
 
     <div class="ui message">
-      처음이세요? <a href="<c:url value="/member/join"/>">Sign Up</a>
+      처음이세요? <a href="<c:url value="/user/join"/>">Sign Up</a>
     </div>
   </div>
 </div>

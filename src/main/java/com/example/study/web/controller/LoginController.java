@@ -1,9 +1,9 @@
 package com.example.study.web.controller;
 
-import com.example.study.web.model.member.Member;
-import com.example.study.web.model.member.dto.PostLoginMember;
-import com.example.study.web.model.member.dto.PostLoginMemberResponse;
-import com.example.study.web.service.MemberService;
+import com.example.study.web.model.user.User;
+import com.example.study.web.model.user.dto.PostLoginUser;
+import com.example.study.web.model.user.dto.PostLoginUserResponse;
+import com.example.study.web.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +23,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
-    private final MemberService memberService;
+    private final UserService userService;
 
-    public LoginController(MemberService memberService) {
-        this.memberService = memberService;
+    public LoginController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping(value = {"/login"})
@@ -37,17 +37,17 @@ public class LoginController {
 
     @ResponseBody
     @PostMapping("/login")
-    public PostLoginMemberResponse postLoginMember(@RequestBody PostLoginMember postLoginMember, HttpSession session) {
+    public PostLoginUserResponse postLoginUser(@RequestBody PostLoginUser postLoginUser, HttpSession session) {
         try {
-            Member member = this.memberService.login(postLoginMember.toEntity().getLoginId(), postLoginMember.toEntity().getPassword());
-            if (member != null) {
-                session.setAttribute("member", member);
-                return new PostLoginMemberResponse("success", "로그인이 완료되었습니다.");
+            User user = this.userService.login(postLoginUser.toEntity().getLoginId(), postLoginUser.toEntity().getPassword());
+            if (user != null) {
+                session.setAttribute("user", user);
+                return new PostLoginUserResponse("success", "로그인이 완료되었습니다.");
             } else {
-                return new PostLoginMemberResponse("success", "아이디 또는 비밀번호가 올바르지 않습니다.");
+                return new PostLoginUserResponse("fail", "아이디 또는 비밀번호가 올바르지 않습니다.");
             }
         } catch (Exception e) {
-            return new PostLoginMemberResponse("fail", e.getMessage());
+            return new PostLoginUserResponse("fail", e.getMessage());
         }
     }
 

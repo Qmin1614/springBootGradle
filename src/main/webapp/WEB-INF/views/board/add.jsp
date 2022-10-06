@@ -42,29 +42,25 @@
     </script>
 </head>
 <body>
-<h2>글쓰기</h2>
-<div>
+<div style="padding: 70px;">
+    <h2>글쓰기</h2>
     <div>
-        <form id="frm" action="<c:url value='/member/add'/>" method="post">
+        <form id="frm" action="<c:url value='/user/add'/>" method="post">
             <table>
                 <tr>
                     <th>닉네임</th>
                 </tr>
                 <td>
-                    <div>
-                        <label>
-                            <input type="text" name="nickName" value="${member.name}" readonly>
-                        </label>
+                    <div class="ui input" style="width: 600px;">
+                        <input class="ui input" type="text" name="nickName" value="${user.name}" readonly>
                     </div>
                 </td>
                 <tr>
                     <th>제목</th>
                 </tr>
                 <td>
-                    <div>
-                        <label>
-                            <input type="text" name="title">
-                        </label>
+                    <div class="ui input" style="width: 600px;">
+                        <input class="ui input" type="text" name="title">
                     </div>
                 </td>
                 <tr>
@@ -72,9 +68,7 @@
                 </tr>
                 <td>
                     <div>
-                        <label>
-                            <textarea type="text" name="content"></textarea>
-                        </label>
+                        <textarea type="text" name="content" style="border: grey; min-height: 300px; min-width: 600px;"></textarea>
                     </div>
                 </td>
             </table>
@@ -83,6 +77,9 @@
     <div>
         <button type="button" class="btn-basic ui button" onclick="add();">
             <p>저장</p>
+        </button>
+        <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/list'/>'">
+            <p>목록</p>
         </button>
     </div>
 </div>
