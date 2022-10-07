@@ -23,16 +23,16 @@
             console.log(convertFormDataToObject($('#frm')));
             $.ajax({
                 type: 'post',
-                url: '<c:url value='/board/add'/>',
+                url: '<c:url value='/domain/add'/>',
                 data: JSON.stringify(convertFormDataToObject($('#frm'))),
                 dataType: 'json',
                 contentType: 'application/json',
-                success: function (postCreateBoardResponse) {
-                    if (postCreateBoardResponse.status === 'success') {
-                        alert(postCreateBoardResponse.message)
-                        location.href='<c:url value='/board/list'/>';
+                success: function (postCreateDomainResponse) {
+                    if (postCreateDomainResponse.status === 'success') {
+                        alert(postCreateDomainResponse.message)
+                        location.href='<c:url value='/domain/list'/>';
                     } else {
-                        alert("글 등록에 실패하셨습니다.");
+                        alert("도메인 등록에 실패하셨습니다.");
                     }
                 }, fail: function (request, status, error) {
                     console.log(error);
@@ -46,30 +46,21 @@
     <h2>글쓰기</h2>
     <div>
         <form id="frm" action="<c:url value='/user/add'/>" method="post">
-            <input type="hidden" name="userId" value="${user.userId}">
             <table>
                 <tr>
-                    <th>닉네임</th>
+                    <th>도메인 이름</th>
                 </tr>
                 <td>
                     <div class="ui input" style="width: 600px;">
-                        <input class="ui input" type="text" name="nickName" value="${user.name}" readonly>
+                        <input class="ui input" type="text" name="name">
                     </div>
                 </td>
                 <tr>
-                    <th>제목</th>
-                </tr>
-                <td>
-                    <div class="ui input" style="width: 600px;">
-                        <input class="ui input" type="text" name="title">
-                    </div>
-                </td>
-                <tr>
-                    <th>내용</th>
+                    <th>설명</th>
                 </tr>
                 <td>
                     <div>
-                        <textarea type="text" name="content" style="border: grey; min-height: 300px; min-width: 600px;"></textarea>
+                        <textarea type="text" name="description" style="border: grey; min-height: 300px; min-width: 600px;"></textarea>
                     </div>
                 </td>
             </table>
@@ -79,7 +70,7 @@
         <button type="button" class="btn-basic ui button" onclick="add();">
             <p>저장</p>
         </button>
-        <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/list'/>'">
+        <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/domain/list'/>'">
             <p>목록</p>
         </button>
     </div>

@@ -37,7 +37,7 @@
                 success: function (postCreateUserResponse) {
                     if (postCreateUserResponse.status === 'success') {
                         alert(postCreateUserResponse.message)
-                        window.location.reload();
+                        location.href='<c:url value='/'/>';
                     } else {
                         alert("회원 가입에 실패하셨습니다.");
                     }
@@ -86,6 +86,14 @@
                 <td>
                     <div class="ui input" style="width: 600px;">
                         <input type="password" id="checkps2">
+                    </div>
+                </td>
+                <tr>
+                    <th>팀</th>
+                </tr>
+                <td>
+                    <div class="ui input" style="width: 600px;">
+                        <input type="text" name="groupId">
                     </div>
                 </td>
             </table>

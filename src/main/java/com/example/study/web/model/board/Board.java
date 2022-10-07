@@ -18,6 +18,7 @@ import java.util.Date;
 @ToString
 public class Board {
     private String boardId;
+    private String userId;
     private String title;
     private String nickName;
     private String content;

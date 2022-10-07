@@ -53,6 +53,7 @@
                             <td>${user.name}</td>
                             <td>${user.loginId}</td>
                             <td>${user.password}</td>
+                            <td>${user.groupId}</td>
                             <td>${user.createDate}</td>
                             <td>${user.updateDate}</td>
                             <td>

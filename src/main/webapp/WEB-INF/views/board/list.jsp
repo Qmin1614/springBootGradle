@@ -63,7 +63,7 @@
                             <td>${board.nickName}</td>
                             <td>${board.createDate}</td>
                             <td>
-                                <c:if test="${user.name eq board.nickName}">
+                                <c:if test="${user.userId eq board.userId}">
                                     <button type="button" class="btn-basic ui button" onclick="location.href='<c:url value='/board/update?boardId='/>${board.boardId}'">수정</button>
                                     <button type="button" class="btn-basic ui button" onclick="remove(${board.boardId})">삭제</button>
                                 </c:if>

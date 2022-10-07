@@ -14,26 +14,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
     <style>
-        .layout-top {grid-area: top;}
+        .layout-top {grid-area: top; padding: 15px;}
     </style>
 </head>
 <div class="head layout-top" id="header">
     <div class="ui secondary  menu">
         <a href=<c:url value="/"/> class="item">Home</a>
         <c:if test="${user != null}">
-            <a href=<c:url value="/user/list"/> class="item">회원정보</a>
+            <a href=<c:url value="/user/list"/> class="item">사용자</a>
+            <a href=<c:url value="/group/list"/> class="item">그룹</a>
+            <a href=<c:url value="/domain/list"/> class="item">도메인</a>
             <a href=<c:url value="/board/list"/> class="item">게시판</a>
         </c:if>
-        <a href=<c:url value="/user/join"/> class="item">회원 가입</a>
+        <c:if test="${user == null}">
+            <a href=<c:url value="/user/join"/> class="item">회원 가입</a>
+        </c:if>
         <div class="right menu">
             <c:if test="${user == null}">
                 <div style="padding: 30px">
-                    <a style="font-size: 15pt" href=<c:url value="/login"/> class="ui item"> Login </a>
+                    <a style="font-size: 15pt; background-color: blanchedalmond" href=<c:url value="/login"/> class="ui item"> Login </a>
                 </div>
             </c:if>
             <c:if test="${user != null}">
                 <div style="padding: 30px">
-                    <a style="font-size: 15pt" href=<c:url value="/logout"/> class="ui item"> logout </a>
+                    <a style="font-size: 15pt; background-color: blanchedalmond" href=<c:url value="/logout"/> class="ui item"> logout </a>
                     <div style="font-size: 12pt">
                         <strong>${user.name}</strong>님 환영합니다.
                     </div>

@@ -90,6 +90,14 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <th>팀</th>
+                </tr>
+                <td>
+                    <div class="ui input" style="width: 600px;">
+                        <input type="text" name="groupId" value="${getUpdateUserResponse.user.groupId}">
+                    </div>
+                </td>
             </table>
         </form>
     </div>

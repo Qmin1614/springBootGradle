@@ -16,12 +16,14 @@ import lombok.Setter;
 public class PostUpdateBoard {
 
     private String boardId;
+    private String userId;
     private String nickName;
     private String title;
     private String content;
 
     public Board toEntity() {
         Board board = new Board();
+        board.setUserId(this.userId);
         board.setBoardId(this.boardId);
         board.setNickName(this.nickName);
         board.setTitle(this.title);

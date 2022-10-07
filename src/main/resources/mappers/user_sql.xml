@@ -8,6 +8,7 @@
         <result property="loginId" column="login_id"/>
         <result property="name" column="name"/>
         <result property="password" column="password"/>
+        <result property="groupId" column="group_id"/>
         <result property="createDate" column="create_date" />
         <result property="updateDate" column="update_date" />
     </resultMap>
@@ -17,6 +18,7 @@
                login_id,
                name,
                password,
+               group_id,
                create_date,
                update_date
         FROM user
@@ -28,6 +30,7 @@
                login_id,
                name,
                password,
+               group_id,
                create_date,
                update_date
         FROM user
@@ -41,8 +44,8 @@
     </select>
 
     <insert id="insertUser" parameterType="com.example.study.web.model.user.User">
-        INSERT INTO user (login_id, name, password, create_date, update_date)
-        VALUES(#{loginId}, #{name}, #{password}, NOW(), NOW())
+        INSERT INTO user (login_id, name, password, group_id, create_date, update_date)
+        VALUES(#{loginId}, #{name}, #{password}, #{groupId}, NOW(), NOW())
     </insert>
 
     <update id="updateUser" parameterType="com.example.study.web.model.user.User">
@@ -50,6 +53,7 @@
            SET login_id = #{loginId},
                name = #{name},
                password = #{password},
+               group_id = #{groupId},
                update_date = NOW()
          WHERE user_id = #{userId}
     </update>

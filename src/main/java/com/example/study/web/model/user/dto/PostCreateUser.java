@@ -18,12 +18,14 @@ public class PostCreateUser {
     private String loginId;
     private String name;
     private String password;
+    private String groupId;
 
     public User toEntity() {
         User user = new User();
         user.setLoginId(this.loginId);
         user.setName(this.name);
         user.setPassword(this.password);
+        user.setGroupId(this.groupId);
         return user;
     }
 }
