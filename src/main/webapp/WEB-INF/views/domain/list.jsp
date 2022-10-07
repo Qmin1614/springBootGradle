@@ -27,7 +27,7 @@
                 <th>설명</th>
                 <th>생성일</th>
                 <c:if test="${user.name eq '관리자'}">
-                    <th>글관리</th>
+                    <th>관리</th>
                 </c:if>
             </tr>
             <c:choose>

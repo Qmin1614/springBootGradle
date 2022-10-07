@@ -28,23 +28,27 @@
             let addFrm = convertFormDataToObject($('#frm'));
             let objAll = {...addFrm, ...password}
             //console.log(objAll);
-            $.ajax({
-                type: 'post',
-                url: '<c:url value='/user/add'/>',
-                data: JSON.stringify(objAll),
-                dataType: 'json',
-                contentType: 'application/json',
-                success: function (postCreateUserResponse) {
-                    if (postCreateUserResponse.status === 'success') {
-                        alert(postCreateUserResponse.message)
-                        location.href='<c:url value='/'/>';
-                    } else {
-                        alert("회원 가입에 실패하셨습니다.");
+            if (objAll.name != '관리자') {
+                $.ajax({
+                    type: 'post',
+                    url: '<c:url value='/user/add'/>',
+                    data: JSON.stringify(objAll),
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (postCreateUserResponse) {
+                        if (postCreateUserResponse.status === 'success') {
+                            alert(postCreateUserResponse.message)
+                            location.href = '<c:url value='/'/>';
+                        } else {
+                            alert("회원 가입에 실패하셨습니다.");
+                        }
+                    }, fail: function (request, status, error) {
+                        console.log(error);
                     }
-                }, fail: function (request, status, error) {
-                    console.log(error);
-                }
-            });
+                });
+            } else {
+                alert("관리자 이름은 사용할 수 없습니다.")
+            }
         } else {
             alert("비밀번호가 서로 다릅니다. 확인해주세요.")
         }
