@@ -20,7 +20,7 @@
         }
 
         function add() {
-            console.log(convertFormDataToObject($('#frm')));
+            // console.log(convertFormDataToObject($('#frm')));
             $.ajax({
                 type: 'post',
                 url: '<c:url value='/domain/add'/>',
@@ -45,7 +45,7 @@
 <div style="padding: 70px;">
     <h2>글쓰기</h2>
     <div>
-        <form id="frm" action="<c:url value='/user/add'/>" method="post">
+        <form id="frm" action="<c:url value='/domain/add'/>" method="post">
             <table>
                 <tr>
                     <th>도메인 이름</th>

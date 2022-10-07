@@ -27,4 +27,9 @@ public class BaseDomainService implements DomainService {
     public List<Domain> getDomainAll() {
         return this.domainMapper.selectDomainAll();
     }
+
+    @Override
+    public int addDomain(Domain domain) {
+        return this.domainMapper.insertDomain(domain);
+    }
 }

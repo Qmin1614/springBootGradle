@@ -21,4 +21,9 @@
         WHERE 1 = 1
     </select>
 
+    <insert id="insertDomain" parameterType="com.example.study.web.model.domain.Domain">
+        INSERT INTO domain (name, description, create_date, update_date)
+        VALUES(#{name}, #{description}, NOW(), NOW())
+    </insert>
+
 </mapper>

@@ -19,4 +19,9 @@ public interface DomainMapper {
      * @see <p>도메인 목록 출력</p>
      */
     List<Domain> selectDomainAll();
+
+    /**
+     * @see <p>도메인 추가</p>
+     */
+    int insertDomain(Domain domain);
 }
