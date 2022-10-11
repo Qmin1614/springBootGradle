@@ -1,7 +1,9 @@
 package com.example.study.web.controller;
 
+import com.example.study.web.model.group.Group;
 import com.example.study.web.model.user.User;
 import com.example.study.web.model.user.dto.*;
+import com.example.study.web.service.GroupService;
 import com.example.study.web.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,21 +22,26 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final GroupService groupService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, GroupService groupService) {
         this.userService = userService;
+        this.groupService = groupService;
     }
 
     @GetMapping(value = {"/user/list"})
     public String list(Model model) {
         List<User> userList = this.userService.getUserAll();
-        model.addAttribute("getReadUserResponse", new GetReadUserResponse(userList));
+        List<Group> groupList = this.groupService.getGroupAll();
+        model.addAttribute("getReadUserResponse", new GetReadUserResponse(userList, groupList));
         model.addAttribute("main", "user/list");
         return "view";
     }
 
     @GetMapping(value = {"/user/join"})
     public String join(Model model) {
+        List<Group> groupList = this.groupService.getGroupAll();
+        model.addAttribute("getCreateUserResponse", new GetCreateUserResponse(groupList));
         model.addAttribute("main", "user/join");
         return "view";
     }
@@ -52,7 +59,10 @@ public class UserController {
 
     @GetMapping(value = {"/user/update"})
     public String update(Model model, @ModelAttribute GetUpdateUser getUpdateUser) {
+
         User user = this.userService.getUserById(getUpdateUser.getUserId());
+        List<Group> groupList = this.groupService.getGroupAll();
+        model.addAttribute("getCreateUserResponse", new GetCreateUserResponse(groupList));
         model.addAttribute("getUpdateUserResponse", new GetUpdateUserResponse(user));
         model.addAttribute("main", "user/update");
         return "view";

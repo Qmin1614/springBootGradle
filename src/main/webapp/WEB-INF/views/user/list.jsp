@@ -41,6 +41,7 @@
         <table class="ui celled table compact clickable checkable" style="max-width: 1000px">
             <tr>
                 <th>이름</th>
+                <th>부서</th>
                 <th>아이디</th>
                 <th>비밀 번호</th>
                 <th>회원가입 날짜</th>
@@ -51,6 +52,18 @@
                     <c:forEach items="${getReadUserResponse.userList}" var="user" varStatus="status">
                         <tr>
                             <td>${user.name}</td>
+                            <c:choose>
+                                <c:when test="${fn:length(getReadUserResponse.groupList) > 0}">
+                                    <c:forEach items="${getReadUserResponse.groupList}" var="group" varStatus="status">
+                                        <c:if test="${user.groupId eq group.groupId}">
+                                            <td>${group.name}</td>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
+                            <c:if test="${user.name eq '관리자'}">
+                                <td>${user.name}</td>
+                            </c:if>
                             <td>${user.loginId}</td>
                             <td>${user.password}</td>
                             <td>${user.createDate}</td>

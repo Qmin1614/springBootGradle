@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: pkm16
@@ -57,7 +58,7 @@
     <div class="contents">
         <form id="frm" action="<c:url value='/user/update'/>" method="post">
             <input class="ui input" type="hidden" name="id" value="${getUpdateUserResponse.user.userId}">
-            <table class="ui celled table compact clickable checkable" style="max-width: 500px">
+            <table class="ui celled table compact clickable checkable" style="max-width: 800px">
                 <tr>
                     <th>이름</th>
                     <td>
@@ -91,13 +92,23 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>팀</th>
+                    <th>그룹</th>
+                    <td>
+                        <div class="ui input" style="width: 600px;">
+                            <select name="groupId">
+                                <option>----그룹 선택----</option>
+                                <c:choose>
+                                    <c:when test="${fn:length(getCreateUserResponse.groupList) > 0}">
+                                        <c:forEach items="${getCreateUserResponse.groupList}" var="group"
+                                                   varStatus="status">
+                                            <option value="${group.groupId}" ${group.groupId eq getUpdateUserResponse.user.groupId ? 'selected' : ''}>${group.name}</option>
+                                        </c:forEach>
+                                    </c:when>
+                                </c:choose>
+                            </select>
+                        </div>
+                    </td>
                 </tr>
-                <td>
-                    <div class="ui input" style="width: 600px;">
-                        <input type="text" name="groupId" value="${getUpdateUserResponse.user.groupId}">
-                    </div>
-                </td>
             </table>
         </form>
     </div>

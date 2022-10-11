@@ -1,7 +1,6 @@
 package com.example.study.web.model.user.dto;
 
 import com.example.study.web.model.group.Group;
-import com.example.study.web.model.user.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,13 +15,11 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class GetReadUserResponse {
+public class GetCreateUserResponse {
 
-    private List<User> userList;
     private List<Group> groupList;
 
-    public GetReadUserResponse(List<User> userList, List<Group> groupList) {
-        this.userList = userList;
+    public GetCreateUserResponse(List<Group> groupList) {
         this.groupList = groupList;
     }
 }

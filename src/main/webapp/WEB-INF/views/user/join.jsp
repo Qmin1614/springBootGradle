@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: pkm16
@@ -93,11 +94,20 @@
                     </div>
                 </td>
                 <tr>
-                    <th>팀</th>
+                    <th>그룹</th>
                 </tr>
                 <td>
                     <div class="ui input" style="width: 600px;">
-                        <input type="text" name="groupId">
+                        <select name="groupId">
+                            <option>----그룹 선택----</option>
+                            <c:choose>
+                                <c:when test="${fn:length(getCreateUserResponse.groupList) > 0}">
+                                    <c:forEach items="${getCreateUserResponse.groupList}" var="group" varStatus="status">
+                                        <option value="${group.groupId}">${group.name}</option>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
+                        </select>
                     </div>
                 </td>
             </table>

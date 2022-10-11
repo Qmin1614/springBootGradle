@@ -21,9 +21,9 @@
     <div class="ui secondary  menu">
         <a href=<c:url value="/"/> class="item">Home</a>
         <c:if test="${user != null}">
-            <a href=<c:url value="/user/list"/> class="item">사용자</a>
-            <a href=<c:url value="/group/list"/> class="item">그룹</a>
             <a href=<c:url value="/domain/list"/> class="item">도메인</a>
+            <a href=<c:url value="/group/list"/> class="item">그룹</a>
+            <a href=<c:url value="/user/list"/> class="item">사용자</a>
             <a href=<c:url value="/board/list"/> class="item">게시판</a>
         </c:if>
         <c:if test="${user == null}">
