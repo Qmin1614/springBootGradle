@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<h1>메인 홈 입니다!</h1>
+<h1>test1</h1>
 </body>
 </html>
